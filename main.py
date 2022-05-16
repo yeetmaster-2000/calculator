@@ -1,8 +1,7 @@
 from os import name, system
 from time import sleep
-import mpmath
-import math
-# Get the first million digits of pi from pi.txt file
+import mpmath, math
+# Get the first million digits of pi
 with open(r'pi.txt') as f:
 	pi = float(f.read())
 # Clear the screen
@@ -11,17 +10,17 @@ def clear():
 		system('cls')
 	else:
 		system('clear')
-# Check if the number ends in .0 or not
+# Check if the number ends in .0
 def check_dot_zero(num):
 	return len(str(num)) == 2 or str(num)[0].endswith('.0')
-# Code
+# Menu
 clear()
 print('To calculate the perimeter of something, enter "p".')
 print('To calculate the area of something, enter "a".')
 print('To calculate the volume of something, enter "v".')
 sleep(1.5)
 choice = input('Enter your choice and press "Enter": ').lower()
-
+# Perimeter
 if choice == 'p':
 	clear()
 	print('To calculate the perimeter of a square, enter "p square".')
