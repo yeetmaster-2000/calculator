@@ -361,58 +361,70 @@ def v_prism():
 		clear()
 		print('To calculate the volume of a rectangular prism, choose 1')
 		print('To calculate the volume of a triangular prism, choose 2')
-		print('\nTo return to volume menu, choose 9')
+		print('\nTo return to the main menu, choose 9')
 		sleep(1.5)
 		choice = input('Enter your choice: ')
 		if choice == '1':
-			try:
-				clear()
-				length = float(input('Enter the length: '))
-				width = float(input('Enter the width: '))
-				height = float(input('Enter the height: '))
-				result = length * width * height
-				if check_dot_zero(result) == True:
-					print(f'The volume of the rectangular prism is: {int(result)}')
-				else:
-					print(f'The volume of the rectangular prism is: {round(result, 3)}')
-			
-			except KeyboardInterrupt:
-				exit(0)
-
-			except ValueError:
-				sleep(1)
-				print('Invalid choice!')
-				sleep(1.5)
-				return v_prism()
+			v_prism_cls().rec()
 		elif choice == '2':
-			try:
-				clear()
-				base = float(input('Enter the length of the base: '))
-				height = float(input('Enter the height: '))
-				length = float(input('Enter the length: '))
-				result = (base * height * length) / 2
-				if check_dot_zero(result) == True:
-					print(f'The volume of the triangular prism is: {int(result)}')
-				else:
-					print(f'The volume of the triangular prism is: {round(result, 3)}')
-			
-			except KeyboardInterrupt:
-				exit(0)
-			
-			except ValueError:
-				sleep(1)
-				print('Invalid choice!')
-				sleep(1.5)
-				return v_prism()
+			v_prism_cls().tri()
 		elif choice == '9':
-			v()
-		else:
+			menu()
+
+	except KeyboardInterrupt:
+		exit(0)
+
+class v_prism_cls:
+
+	def __init__(self):
+		try:
+			return
+		except KeyboardInterrupt:
+			exit(0)
+	
+	# Volume of a rectangular prism
+	def rec(self):
+		try:
+			clear()
+			length = float(input('Enter the length: '))
+			width = float(input('Enter the width: '))
+			height = float(input('Enter the height: '))
+			result = length * width * height
+			if check_dot_zero(result) == True:
+				print(f'The volume of the rectangular prism is: {int(result)}')
+			else:
+				print(f'The volume of the rectangular prism is: {round(result, 3)}')
+		
+		except ValueError:
 			sleep(1)
 			print('Invalid choice!')
 			sleep(1.5)
-			return v_prism()
-	except KeyboardInterrupt:
-		exit(0)
+			return v_prism().rec()
+		
+		except KeyboardInterrupt:
+			exit(0)
+	
+	# Volume of a triangular prism
+	def tri(self):
+		try:
+			clear()
+			base = float(input('Enter the length of the base: '))
+			height = float(input('Enter the height: '))
+			length = float(input('Enter the length: '))
+			result = (base * height * length) / 2
+			if check_dot_zero(result) == True:
+				print(f'The volume of the triangular prism is: {int(result)}')
+			else:
+				print(f'The volume of the triangular prism is: {round(result, 3)}')
+		
+		except ValueError:
+			sleep(1)
+			print('Invalid choice!')
+			sleep(1.5)
+			return v_prism().tri()
+		
+		except KeyboardInterrupt:
+			exit(0)
 
 # Volume of a pyramid
 def v_pyramid():
@@ -530,6 +542,7 @@ def menu():
 
 # Run again
 def run_again():
+	sleep(1.5)
 	answer = input('\nWould you like to run the program again?\nEnter your choice (y/n): ').lower()
 	if answer == 'y':
 		menu()
