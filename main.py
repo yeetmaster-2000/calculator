@@ -92,6 +92,7 @@ def p_tri():
 		clear()
 		equal = input('Are all of the sides equal? Enter your choice (y/n): ')
 		if equal == 'y':
+			clear()
 			side_len = float(input('Enter the side length: '))
 			result = side_len * 3
 			clear()
@@ -284,6 +285,7 @@ def a_trap():
 # Area of a circle
 def a_circ():
 	try:
+		clear()
 		r = float(input('Enter the radius: '))
 		result = pi * r ** 2
 		if check_dot_zero(result) == True:
@@ -429,6 +431,7 @@ class v_prism_cls:
 # Volume of a pyramid
 def v_pyramid():
 	try:
+		clear()
 		length = float(input('Enter the length: '))
 		width = float(input('Enter the width: '))
 		height = float(input('Enter the height: '))
