@@ -401,7 +401,7 @@ class v_prism_cls:
 			sleep(1)
 			print('Invalid choice!')
 			sleep(1.5)
-			return v_prism().rec()
+			return v_prism_cls().rec()
 		
 		except KeyboardInterrupt:
 			exit(0)
@@ -423,7 +423,7 @@ class v_prism_cls:
 			sleep(1)
 			print('Invalid choice!')
 			sleep(1.5)
-			return v_prism().tri()
+			return v_prism_cls().tri()
 		
 		except KeyboardInterrupt:
 			exit(0)
